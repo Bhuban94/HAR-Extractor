@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAR File Extractor</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Dependencies for HAR extract functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 HAR File Extractor</h1>
+        <p class="subtitle">Extract and download content from HAR (HTTP Archive) files</p>
+
+        <div id="message" class="message"></div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Drag and drop HAR files here</div>
+                <div class="upload-hint">or click to select files</div>
+            </div>
+            <input type="file" id="harInput" accept=".har" multiple>
+            <div class="file-list" id="fileList"></div>
+        </div>
+
+        <div class="options-section" id="optionsSection" style="display: none;">
+            <div class="option">
+                <input type="checkbox" id="includeQuery" checked>
+                <label for="includeQuery">Include query-string hash in filenames</label>
+            </div>
+            <div class="option-description">
+                Differentiates files by their query parameters (e.g., file__q_a1b2c3d4e5.js)
+            </div>
+            <div class="option">
+                <input type="checkbox" id="generateQueryManifest">
+                <label for="generateQueryManifest">Generate query parameter manifest</label>
+            </div>
+            <div class="option-description">
+                Includes a _query-manifest.json in the ZIP mapping file paths to their original query parameters
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" id="processBtn" disabled>Process & Download</button>
+            <button class="btn-secondary" id="clearBtn">Clear</button>
+        </div>
+
+        <div id="statsSection" class="stats-section">
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Extracted:</span>
+                <span class="stat-value" id="extractedCount">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Skipped:</span>
+                <span class="stat-value" id="skippedCount">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Failed:</span>
+                <span class="stat-value" id="failedCount">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Total Files in ZIP:</span>
+                <span class="stat-value" id="totalCount">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core HAR extract module - reusable -->
+    <script src="core/har-extract-core.js"></script>
+    <!-- Web application using the core module -->
+    <script src="har-extractor.js"></script>
+</body>
+</html>
