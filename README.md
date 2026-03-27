@@ -2,6 +2,10 @@
 
 Extract and download response content from HAR (HTTP Archive) files. Works as a browser web app or a reusable JavaScript module (browser & Node.js).
 
+**[Live Usage](https://bhuban94.github.io/HAR-Extractor/)**
+
+**[Latest Release](https://github.com/Bhuban94/HAR-Extractor/releases/latest)**
+
 ## Features
 
 - Upload one or multiple HAR files via drag-and-drop
@@ -39,6 +43,8 @@ Extract and download response content from HAR (HTTP Archive) files. Works as a 
    - **Include query-string hash** — differentiates requests with different query parameters
    - **Generate query parameter manifest** — creates a structured manifest for replay/triage
 4. Click **Process & Download** — browser downloads a ZIP
+
+> **Privacy note:** HAR files may contain sensitive data (cookies, auth tokens, personal information). If your HAR files contain sensitive information, download the [latest release ZIP](https://github.com/Bhuban94/HAR-Extractor/releases/latest) and use it locally instead of the hosted version.
 
 ---
 
