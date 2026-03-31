@@ -1,0 +1,36 @@
+{
+  "name": "har-extract-core",
+  "version": "1.0.0",
+  "description": "Extract and download response content from HAR (HTTP Archive) files. Works as a browser web app or a reusable JavaScript module (browser & Node.js).",
+  "main": "./core/har-extract-core.js",
+  "types": "./core/har-extract-core.d.ts",
+  "exports": {
+    ".": {
+      "types": "./core/har-extract-core.d.ts",
+      "import": "./core/har-extract-core.mjs",
+      "require": "./core/har-extract-core.js",
+      "default": "./core/har-extract-core.js"
+    }
+  },
+  "files": [
+    "core/har-extract-core.mjs",
+    "core/har-extract-core.js",
+    "core/har-extract-core.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "har",
+    "http-archive",
+    "extractor",
+    "zip",
+    "typescript"
+  ],
+  "scripts": {
+    "smoke": "node scripts/run-packed-test.js",
+    "test:smoke": "npm run smoke",
+    "test": "echo \"No unit tests configured. Run npm run smoke\"",
+    "clean": "if exist __testrun__ rmdir /s /q __testrun__"
+  },
+  "author": "",
+  "license": "ISC"
+}

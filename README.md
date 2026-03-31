@@ -24,10 +24,16 @@ Extract and download response content from HAR (HTTP Archive) files. Works as a 
 ├── index.html                # Web UI
 ├── har-extractor.js          # Web app controller
 ├── styles.css                # UI styles
+├── scripts/
+│   └── run-packed-test.js    # Smoke test runner (pack/install/test)
 ├── core/
 │   └── har-extract-core.js   # Core module (standalone, reusable)
+│   └── har-extract-core.mjs  # ESM wrapper export
+│   └── har-extract-core.d.ts # TypeScript declarations
 ├── examples/
 │   └── examples.js           # 11 usage examples
+├── tests/
+│   └── smokeTest.js          # Smoke assertions copied into isolated run workspace
 └── README.md                 # This file
 ```
 
@@ -52,6 +58,12 @@ Extract and download response content from HAR (HTTP Archive) files. Works as a 
 
 `core/har-extract-core.js` works standalone in any JavaScript environment.
 
+### Install (NPM)
+
+```bash
+npm install har-extract-core
+```
+
 ### Browser
 
 ```html
@@ -71,7 +83,7 @@ Extract and download response content from HAR (HTTP Archive) files. Works as a 
 ### Node.js
 
 ```javascript
-const HarExtractCore = require('./core/har-extract-core.js');
+const HarExtractCore = require('har-extract-core');
 const fs = require('fs');
 
 const harData = JSON.parse(fs.readFileSync('trace.har', 'utf8'));
@@ -81,6 +93,20 @@ const { files, stats } = await HarExtractCore.extractFilesFromHar(harData, {
 });
 console.log(`Extracted ${stats.extracted} files`);
 ```
+
+### Node.js (ESM)
+
+```javascript
+import HarExtractCore from 'har-extract-core';
+
+const { files, stats } = await HarExtractCore.extractFilesFromHar(harData, {
+  includeQuerySuffix: true,
+});
+```
+
+### TypeScript
+
+Type declarations are included via `core/har-extract-core.d.ts`, so editors provide IntelliSense and type checking without extra setup.
 
 See `examples/examples.js` for 11 detailed usage examples (filtering, multi-file, progress tracking, Node.js, query manifest, etc.).
 
@@ -199,6 +225,10 @@ Each layer is independent — use the core module without the web app, or replac
 | **Blank page / CORS error** | Check browser console (F12); try a local web server (e.g., VS Code Live Server) |
 
 Script load order must be: JSZip → `core/har-extract-core.js` → `har-extractor.js`
+
+## Contributing
+
+Development workflow, smoke-test commands, and pull request guidance are in `CONTRIBUTION.md`.
 
 ## Compatibility
 

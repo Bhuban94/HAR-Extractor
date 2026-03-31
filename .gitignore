@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Test artifacts
+*.tgz
+tests/node_modules/
+tests/package-lock.json
+tests/package.json
+tests/*-consumer/
+tests/Named-*-extraction/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
