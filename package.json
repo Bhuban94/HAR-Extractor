@@ -32,5 +32,13 @@
     "clean": "if exist __testrun__ rmdir /s /q __testrun__"
   },
   "author": "",
+  "homepage": "https://github.com/Bhuban94/HAR-Extractor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bhuban94/HAR-Extractor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bhuban94/HAR-Extractor/issues"
+  },
   "license": "ISC"
 }
