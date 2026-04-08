@@ -19,6 +19,7 @@ tests/Named-*-extraction/
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs & Secrets
 *.log
 npm-debug.log*
+.npmrc

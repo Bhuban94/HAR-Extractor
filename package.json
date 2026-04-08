@@ -1,5 +1,5 @@
 {
-  "name": "har-extract-core",
+  "name": "@bhuban94/har-extract-core",
   "version": "1.0.0",
   "description": "Extract and download response content from HAR (HTTP Archive) files. Works as a browser web app or a reusable JavaScript module (browser & Node.js).",
   "main": "./core/har-extract-core.js",
@@ -40,5 +40,5 @@
   "bugs": {
     "url": "https://github.com/Bhuban94/HAR-Extractor/issues"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
